@@ -1,4 +1,4 @@
-import knex from '../knexfile.js';
+import knex from '../knex.js';
 
 export const getFoodSensitivities = async (req, res) => {
     try {

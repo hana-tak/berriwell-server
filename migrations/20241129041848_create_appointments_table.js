@@ -15,7 +15,7 @@ export const up = async function (knex) {
     table.date("date").notNullable();
     table.time("time").notNullable();
     table.string("doctor_name").notNullable();
-    table.string("appointment_type").notNullable();
+    table.string("reason").notNullable();
     table.timestamps(true, true); // created_at and updated_at
   });
 };
