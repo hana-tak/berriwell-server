@@ -13,7 +13,7 @@ app.use(cors());
 
 app.use('/users', usersRoutes);
 app.use('/symptom-journal', journalsRoutes);
-app.use('/sensitivities', sensitivitiesRoutes);
+app.use('/food-sensitivities', sensitivitiesRoutes);
 app.use('/health-plan', healthPlanRoutes);
 app.use('/appointments', appointmentsRoutes);
 

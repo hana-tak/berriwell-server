@@ -16,16 +16,26 @@ export const getFoodSensitivities = async (req, res) => {
 
 export const updateFoodSensitivity = async (req, res) => {
   const { id } = req.params;
-  const { severity } = req.body;
+  const { severity, user_id } = req.body;
 
-  if (!["normal", "borderline", "elevated"].includes(severity)) {
-    return res.status(400).json({ error: "Invalid severity value." });
+  if (!id || !severity || !user_id) {
+    return res
+      .status(400)
+      .json({ error: "ID, user_id, and severity are required." });
   }
 
   try {
-    await knex("food_sensitivities").where({ id }).update({ severity });
-    res.json({ message: "Severity updated successfully." });
+    const result = await knex("food_sensitivities")
+      .where({ id, user_id })
+      .update({ severity });
+
+    if (result) {
+      res.status(200).json({ message: "Severity updated successfully." });
+    } else {
+      res.status(404).json({ error: "Food sensitivity not found." });
+    }
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to update severity." });
   }
 };
