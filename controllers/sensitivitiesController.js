@@ -1,24 +1,31 @@
-import knex from '../knex.js';
+import knex from "../knex.js";
 
 export const getFoodSensitivities = async (req, res) => {
-    try {
-        const sensitivities = await knex('food_sensitivities').where('user_id', req.params.id);
-        res.json(sensitivities);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+  const { userId } = req.query;
+  if (!userId) return res.status(400).json({ error: "userId is required" });
+
+  try {
+    const sensitivities = await knex("food_sensitivities").where({
+      user_id: userId,
+    });
+    res.json(sensitivities);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch sensitivities." });
+  }
 };
 
 export const updateFoodSensitivity = async (req, res) => {
-    try {
-        const { reaction } = req.body;
-        const updated = await knex('food_sensitivities')
-            .where('id', req.params.sensitivity_id)
-            .update({ reaction });
+  const { id } = req.params;
+  const { severity } = req.body;
 
-        if (!updated) return res.status(404).json({ message: 'Food sensitivity not found' });
-        res.json({ message: 'Reaction updated successfully' });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+  if (!["normal", "borderline", "elevated"].includes(severity)) {
+    return res.status(400).json({ error: "Invalid severity value." });
+  }
+
+  try {
+    await knex("food_sensitivities").where({ id }).update({ severity });
+    res.json({ message: "Severity updated successfully." });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update severity." });
+  }
 };

@@ -11,11 +11,11 @@ export const up = async function (knex) {
       .notNullable()
       .references("id")
       .inTable("users")
-      .onDelete("CASCADE"); // Deletes sensitivities if user is deleted
-    table.string("category").notNullable(); // Category (e.g., Vegetables, Grains)
-    table.string("food_name").notNullable(); // Name of the food
-    table.string("reaction").notNullable(); // Reaction severity (e.g., High, Moderate, Low)
-    table.timestamps(true, true); // created_at and updated_at
+      .onDelete("CASCADE");
+    table.string("category").notNullable();
+    table.string("food_name").notNullable();
+    table.enum("severity", ["unassigned", "normal", "borderline", "elevated"]).defaultTo("unassigned");
+    table.timestamps(true, true);
   });
 };
 

@@ -6,7 +6,7 @@ import {
 
 const router = express.Router();
 
-router.get('/:id', getFoodSensitivities);
-router.put('/:sensitivity_id', updateFoodSensitivity);
+router.get('/', getFoodSensitivities);
+router.put('/:id', updateFoodSensitivity);
 
 export default router;
