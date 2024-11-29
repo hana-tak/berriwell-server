@@ -3,9 +3,9 @@ import { getHealthPlan, addHealthPlan, updateHealthPlan, deleteHealthPlan } from
 
 const router = express.Router();
 
-router.get('/:id', getHealthPlan);
+router.get('/', getHealthPlan);
 router.post('/', addHealthPlan);
-router.put('/:id', updateHealthPlan);
-router.delete('/:id', deleteHealthPlan);
+router.put('/', updateHealthPlan);
+router.delete('/', deleteHealthPlan);
 
 export default router;
