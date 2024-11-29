@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/users', usersRoutes);
-app.use('/journals', journalsRoutes);
+app.use('/symptom-journal', journalsRoutes);
 app.use('/sensitivities', sensitivitiesRoutes);
 app.use('/health-plan', healthPlanRoutes);
 app.use('/appointments', appointmentsRoutes);

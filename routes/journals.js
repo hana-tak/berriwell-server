@@ -3,9 +3,9 @@ import { getJournals, addJournal, updateJournal, deleteJournal } from '../contro
 
 const router = express.Router();
 
-router.get('/:id', getJournals);
+router.get('/', getJournals);
 router.post('/', addJournal);
-router.put('/:journal_id', updateJournal);
-router.delete('/:journal_id', deleteJournal);
+router.put('/', updateJournal);
+router.delete('/', deleteJournal);
 
 export default router;
