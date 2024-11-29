@@ -9,21 +9,6 @@ export const getFoodSensitivities = async (req, res) => {
     }
 };
 
-export const addFoodSensitivity = async (req, res) => {
-    try {
-        const { user_id, category, food_name, reaction } = req.body;
-        const [id] = await knex('food_sensitivities').insert({
-            user_id,
-            category,
-            food_name,
-            reaction
-        });
-        res.status(201).json({ id, category, food_name, reaction });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-};
-
 export const updateFoodSensitivity = async (req, res) => {
     try {
         const { reaction } = req.body;

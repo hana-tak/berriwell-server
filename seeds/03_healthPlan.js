@@ -10,7 +10,7 @@ export const seed = async function (knex) {
         user_id: 1,
         tasks: JSON.stringify([
           "Take vitamin D supplement daily",
-          "Drink 8 glasses of water",
+          "Eat a high-protein breakfast",
           "Avoid processed sugar"
         ]),
         last_updated: knex.fn.now()
@@ -45,15 +45,5 @@ export const seed = async function (knex) {
         ]),
         last_updated: knex.fn.now()
       },
-      {
-        id: 5,
-        user_id: 5,
-        tasks: JSON.stringify([
-          "Get 7-8 hours of sleep per night",
-          "Reduce screen time before bed",
-          "Eat a high-protein breakfast"
-        ]),
-        last_updated: knex.fn.now()
-      }
     ]);
   };

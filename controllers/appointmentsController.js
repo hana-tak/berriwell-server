@@ -1,6 +1,5 @@
 import knex from '../knexfile.js';
 
-// Get all appointments for a user
 export const getAppointments = async (req, res) => {
     try {
         const appointments = await knex('appointments').where('user_id', req.params.id);
@@ -10,7 +9,6 @@ export const getAppointments = async (req, res) => {
     }
 };
 
-// Add a new appointment
 export const addAppointment = async (req, res) => {
     try {
         const { user_id, date, time, doctor_name, appointment_type } = req.body;
@@ -21,7 +19,6 @@ export const addAppointment = async (req, res) => {
     }
 };
 
-// Update an existing appointment
 export const updateAppointment = async (req, res) => {
     try {
         const { date, time, doctor_name, appointment_type } = req.body;
@@ -36,7 +33,6 @@ export const updateAppointment = async (req, res) => {
     }
 };
 
-// Delete an appointment
 export const deleteAppointment = async (req, res) => {
     try {
         const deleted = await knex('appointments').where('id', req.params.appointment_id).del();

@@ -38,22 +38,12 @@ export const seed = async function (knex) {
       {
         id: 4,
         user_id: 4,
-        pain_scale: 8,
-        date: '2024-11-23',
-        time: '20:00:00',
-        symptoms: JSON.stringify(["Chest tightness"]),
-        notes: "Experienced chest tightness after a stressful meeting.",
-        created_at: knex.fn.now()
-      },
-      {
-        id: 5,
-        user_id: 5,
         pain_scale: 4,
         date: '2024-11-24',
         time: '10:00:00',
         symptoms: JSON.stringify(["Upset stomach"]),
         notes: "Upset stomach after eating spicy food.",
         created_at: knex.fn.now()
-      }
+      },
     ]);
   };

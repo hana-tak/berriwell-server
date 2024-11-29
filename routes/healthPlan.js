@@ -1,5 +1,5 @@
 import express from 'express';
-import { getHealthPlan, addHealthPlan, updateHealthPlan } from '../controllers/healthPlanController.js';
+import { getHealthPlan, addHealthPlan, updateHealthPlan, deleteHealthPlan } from '../controllers/healthPlanController.js';
 
 const router = express.Router();
 
