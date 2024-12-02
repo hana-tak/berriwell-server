@@ -3,7 +3,6 @@ import knex from "../knex.js";
 export const getHealthPlan = async (req, res) => {
   try {
     const { userId, id } = req.query;
-
     const query = knex("health_plan").where("user_id", userId);
 
     if (id) {

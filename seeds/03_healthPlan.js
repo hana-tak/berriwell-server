@@ -24,7 +24,7 @@ export const seed = async function (knex) {
     {
       id: 3,
       user_id: 1,
-      task: "Eat a high-protein breakfast",
+      task: "Eat a High-Protein Breakfast",
       amount: "20g",
       frequency: "Every Morning",
       last_updated: knex.fn.now(),
@@ -55,7 +55,7 @@ export const seed = async function (knex) {
     },
     {
       id: 7,
-      user_id: 4,
+      user_id: 2,
       task: "Take Inositol",
       amount: "1 scoop",
       frequency: "Daily",

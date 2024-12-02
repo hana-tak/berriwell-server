@@ -49,7 +49,6 @@ export const updateAppointment = async (req, res) => {
     return res.status(400).json({ error: "id and userId are required" });
   }
 
-  // Parse id and userId as integers
   id = parseInt(id, 10);
   userId = parseInt(userId, 10);
 
@@ -81,7 +80,6 @@ export const deleteAppointment = async (req, res) => {
     return res.status(400).json({ error: "id and userId are required" });
   }
 
-  // Parse id and userId as integers to avoid type issues
   id = parseInt(id, 10);
   userId = parseInt(userId, 10);
 

@@ -13,8 +13,8 @@ export const seed = async function (knex) {
     },
     {
       id: 2,
-      name: "Crystal",
-      email: "crystal@example.com",
+      name: "Sofia",
+      email: "sofia@example.com",
       created_at: knex.fn.now(),
     },
     {
@@ -25,8 +25,8 @@ export const seed = async function (knex) {
     },
     {
       id: 4,
-      name: "Sofia",
-      email: "sofia@example.com",
+      name: "Brainstation",
+      email: "brainstation@example.com",
       created_at: knex.fn.now(),
     },
   ]);
